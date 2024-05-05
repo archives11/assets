@@ -187,6 +187,7 @@ end
 
 local Library, Utility, Flags, Theme = loadfile("Library.lua")()
 
+local Settings = loadstring(game:HttpGet("https://raw.githubusercontent.com/qvx0/uilibary/main/esp.lua"))(); 
 
 
 do -- Utility
@@ -497,9 +498,11 @@ do
     
     local rage2 = lib:Page({name = "Rage"})
     local visuals = lib:Page({name = "Visuals"})
+    local players = lib:Page({name = "Players"})
     local misc = lib:Page({name = "Misc"})
     local config = lib:Page({name = "Config"})
     
+do -- Rage
     local rage = rage2:Section({name = "Rage"})
     rage:RiskToggle({Name = "Enabled", Callback = function(state) settings.combat.silentAim = state end})
     rage:Dropdown({Name = "Target hitbox", Callback = function(state) settings.combat.hitPart = state end, Options = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg",  "LeftUpperLeg", "RightLowerLeg", "RightFoot",  "RightUpperLeg"}, Default = "Head"})
@@ -524,27 +527,19 @@ do
     :Colorpicker({Name = "Color", Callback = function(color) settings.combat.fovCircle.color = color end, Default = Color3.fromRGB(255,255,255)})
     cfg:Slider({Name = "Thickness", Callback = function(state) settings.combat.fovCircle.thickness = state end, Decimals = 1, Min = 0, Max = 100, Default = 1})
     cfg:Slider({Name = "Transparency", Callback = function(state) settings.combat.fovCircle.transparency = state end, Decimals = 0.01, Min = 0, Max = 1, Default = 1})
-    --
+end
 
+do -- Players
+    local esp = players:Section({name = "Enemies"})
+    esp:Toggle({Name = "Enabled", Callback = function(state) Settings.Enabled = state end})
 
-
+end
 
 
 
 
     local menu = config:Section({name = "Menu"})
     local theme = config:Section({name = "Theme"})
-
-
-
-
-
-
-    menu:Keybind({Name = "Toggle", Flag = "ConfigMenu_MenuToggle", Default = Enum.KeyCode.Z, Mode = "Toggle", Callback = function(Key) window.uibind = Key end})
-
-
-
-
 
     theme:Dropdown({Name = "Theme", Flag = "ConfigTheme_Theme", Default = "Default", Max = 8, Options = {"Default", "Abyss", "Fatality", "Neverlose", "Aimware", "Youtube", "Gamesense", "Onetap", "Entropy", "Interwebz", "Dracula", "Spotify", "Vape", "Neko", "Corn", "Minecraft"}, Callback = function(callback)
         if callback == "Default" then

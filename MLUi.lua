@@ -501,7 +501,7 @@ do
     local config = lib:Page({name = "Config"})
     
     local rage = rage2:Section({name = "Rage"})
-    rage:Toggle({Name = "Enabled", Callback = function(state) settings.combat.silentAim = state end})
+    RiskToggle:Toggle({Name = "Enabled", Callback = function(state) settings.combat.silentAim = state end})
     rage:Dropdown({Name = "Target hitbox", Callback = function(state) settings.combat.hitPart = state end, Options = {"Head", "UpperTorso", "HumanoidRootPart", "LowerTorso", "LeftHand", "RightHand", "LeftLowerArm", "RightLowerArm", "LeftUpperArm", "RightUpperArm", "LeftFoot", "LeftLowerLeg",  "LeftUpperLeg", "RightLowerLeg", "RightFoot",  "RightUpperLeg"}, Default = "Head"})
     rage:Slider({Name = "Field of view", Callback = function(state) settings.combat.fovCircle.radius = state end, Decimals = 0.1, Min = 0, Max = 360, Default = 360})
     rage:Toggle({Name = "Automatic fire", Callback = function(state) settings.combat.triggerBot = state end})
@@ -510,13 +510,13 @@ do
     --
     local mods = rage2:Section({Name = "Other", side = "right"})
     --mods:Toggle({Name = "Automatic", Callback = function(state) settings.combat.automatic = state end, Risk = true})
-    mods:Toggle({Name = "Infinite ammo", Callback = function(state) settings.combat.infiniteAmmo = state end})
-    mods:Toggle({Name = "Rapid fire", Callback = function(state) settings.combat.rapidFire = state end})
-    mods:Toggle({Name = "Melee exploits", Callback = function(state) settings.combat.meelerange = state end})
+    RiskToggle:Toggle({Name = "Infinite ammo", Callback = function(state) settings.combat.infiniteAmmo = state end})
+    RiskToggle:Toggle({Name = "Rapid fire", Callback = function(state) settings.combat.rapidFire = state end})
+    RiskToggle:Toggle({Name = "Melee exploits", Callback = function(state) settings.combat.meelerange = state end})
     mods:Toggle({Name = "Instant reload", Callback = function(state) settings.combat.instantreload = state end})
     mods:Toggle({Name = "Remove spread", Callback = function(state) settings.combat.noSpread = state end})
     mods:Toggle({Name = "Remove recoil", Callback = function(state) settings.combat.noRecoil = state end})
-    mods:Toggle({Name = "Instant equip", Callback = function(state) settings.combat.instantequip = state end})
+    RiskToggle:Toggle({Name = "Instant equip", Callback = function(state) settings.combat.instantequip = state end})
 
 
     local cfg = rage2:Section({Name = "FOV"})
@@ -654,6 +654,7 @@ do
     theme:Colorpicker({name = "Outline", Default = Color3.fromRGB(0, 0, 0), Callback = function(Color) Library:UpdateColor("Outline", Color) end})
     theme:Colorpicker({name = "Inline", Default = Color3.fromRGB(50, 50, 50), Callback = function(Color) Library:UpdateColor("Inline", Color) end})
     theme:Colorpicker({name = "Light Text", Default = Color3.fromRGB(255, 255, 255), Callback = function(Color) Library:UpdateColor("TextColor", Color) end})
+    theme:Colorpicker({name = "Risk Text", Default = Color3.fromRGB(255, 255, 255), Callback = function(Color) Library:UpdateColor("RiskTextColor", Color) end})
     theme:Colorpicker({name = "Dark Text", Default = Color3.fromRGB(175, 175, 175), Callback = function(Color) Library:UpdateColor("TextDark", Color) end})
     theme:Colorpicker({name = "Text Outline", Default = Color3.fromRGB(0, 0, 0), Callback = function(Color) Library:UpdateColor("TextBorder", Color) end})
     theme:Colorpicker({name = "Cursor Outline", Default = Color3.fromRGB(10, 10, 10), Callback = function(Color) Library:UpdateColor("CursorOutline", Color) end})

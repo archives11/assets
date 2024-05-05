@@ -1,7 +1,7 @@
 --[[ Credits
     @matas - Created UI
 ]]
-task.wait(5)
+
 -- Services
 local PLAYERS = cloneref(game:GetService("Players"));
 local RUN_SERVICE = cloneref(game:GetService("RunService"));
@@ -508,7 +508,7 @@ do
     rage:Slider({Name = "Automatic fire delay", Callback = function(state) settings.combat.triggerBotDelay = state end, Decimals = 0.01, Min = 0, Max = 1, Default = 0.1, suffix = "ms"})
     rage:Slider({Name = "Max distance", Callback = function(state) settings.combat.maxDist = state end, Decimals = 1, Min = 0, Max = 5000, Default = 360, suffix = "st"})
     --
-    local mods = rage2:Section({Name = "Other"})
+    local mods = rage2:Section({Name = "Other", side = "right"})
     --mods:Toggle({Name = "Automatic", Callback = function(state) settings.combat.automatic = state end, Risk = true})
     mods:Toggle({Name = "Infinite ammo", Callback = function(state) settings.combat.infiniteAmmo = state end})
     mods:Toggle({Name = "Rapid fire", Callback = function(state) settings.combat.rapidFire = state end})
@@ -521,7 +521,7 @@ do
 
     local cfg = rage2:Section({Name = "FOV"})
     cfg:Toggle({Name = "Draw FOV", Callback = function(state) settings.combat.fovCircle.enabled = state end})
-    :Colorpicker({Name = "Color", Callback = function(color) settings.combat.testingcolors125 = color end, Default = Color3.fromRGB(255,255,255)})
+    :Colorpicker({Name = "Color", Callback = function(color) settings.combat.fovCircle.color = color end, Default = Color3.fromRGB(255,255,255)})
     cfg:Slider({Name = "Thickness", Callback = function(state) settings.combat.fovCircle.thickness = state end, Decimals = 1, Min = 0, Max = 100, Default = 1})
     cfg:Slider({Name = "Transparency", Callback = function(state) settings.combat.fovCircle.transparency = state end, Decimals = 0.01, Min = 0, Max = 1, Default = 1})
     --

@@ -4,7 +4,7 @@
   Fix the stuff urself if its not
 ]]
 local customFont = Drawing.new("Font", "Proggy")
-customFont.Data = game:HttpGet("https://cdn.discordapp.com/attachments/1223357077041320067/1235640167205834772/ProggyClean.ttf?ex=663866d4&is=66371554&hm=0aa086903bd8932526ef0991cd6c018ecbf0fb8938d355170f243f84ed7e8a72&")
+customFont.Data = game:HttpGet("https://cdn.discordapp.com/attachments/1223357077041320067/1235640167205834772/ProggyClean.ttf?ex=663b09d4&is=6639b854&hm=9d09d1899a0c484478e7b16e345c13249c6e6aa1eca0a1921ea564cf3e8dff92&")
 
 -- // Variables
 local ws = game:GetService("Workspace")
